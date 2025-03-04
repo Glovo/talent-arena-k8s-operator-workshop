@@ -7,7 +7,7 @@ By the end of this part, you will:
 - Understand how to interact with the Ollama API.
 - Implement ReplicaSet-based model promotion using a prompt.
 
-Some code/manifest has been provided to you to aid you in this workshop.
+Some code/manifest has been provided to you to aid you in this workshop:
   - [MyOllama Helpers](../part-two/api/v1/myollama_helpers.go)
   - [MyOllama Client](../part-two/internal/controller/myollama_client.go)
   - [Sample Resource](../part-two/config/samples/talentarena_v1_myollama.yaml)
@@ -30,11 +30,11 @@ This ensures that the latest version of the operator is running inside your clus
 
 ## Observing changes
 
-Check for a new controller deployment
+Check for a new controller deployment:
 ```
-> watch kubectl get po -A --selector control-plane=controller-manager 
+> watch kubectl get pod -A --selector control-plane=controller-manager 
 ```
-Check logs
+Check controller pod logs:
 ```
 kubectl logs -n <namespace> <pod name> -f
 ```
