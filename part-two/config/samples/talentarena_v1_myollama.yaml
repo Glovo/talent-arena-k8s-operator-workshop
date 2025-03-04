@@ -1,0 +1,15 @@
+apiVersion: talentarena.talentarena/v1
+kind: MyOllama
+metadata:
+  labels:
+    app.kubernetes.io/name: myollama
+    app.kubernetes.io/instance: myollama-sample
+    app.kubernetes.io/part-of: part-two
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/created-by: part-two
+  name: myollama-sample
+spec:
+  model: "llama3.2:1b"
+  successPrompt: "are you ollama?"
+  # model: "smollm:135m"
+  # successPrompt: "are you alive?"
