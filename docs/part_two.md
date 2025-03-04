@@ -8,9 +8,9 @@ By the end of this part, you will:
 - Implement ReplicaSet-based model promotion using a prompt.
 
 Some code/manifest has been provided to you to aid you in this workshop.
-  - [MyOllama Helpers](../part-two/api/v1/myollama_helpers.go)!
-  - [MyOllama Client](../part-two/internal/controller/myollama_client.go)!
-  - [Sample Resource](../part-two/config/samples/talentarena_v1_myollama.yaml)!
+  - [MyOllama Helpers](../part-two/api/v1/myollama_helpers.go)
+  - [MyOllama Client](../part-two/internal/controller/myollama_client.go)
+  - [Sample Resource](../part-two/config/samples/talentarena_v1_myollama.yaml)
 
 ### Deploying the Operator in the Kubernetes Cluster
 
