@@ -13,8 +13,8 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/log"
 )
 
-// GetHash returns a hash for MyOllama object based on the spec
-func (m *MyOllama) GetHash() string {
+// Hash returns a hash for MyOllama object based on the spec
+func (m *MyOllama) Hash() string {
 	hash := hex.EncodeToString([]byte(m.Spec.Model))
 	if len(hash) > 10 {
 		hash = hash[:10]
@@ -25,7 +25,7 @@ func (m *MyOllama) GetHash() string {
 // ChildReplicaSet returns a new expected child ReplicaSet object based on MyOllama object's spec
 func (m *MyOllama) ChildReplicaSet(ctx context.Context, scheme *runtime.Scheme) (appsv1.ReplicaSet, error) {
 	log := log.FromContext(ctx)
-	versionHash := m.GetHash()
+	versionHash := m.Hash()
 	objLabels := map[string]string{
 		"ollama-ref":  m.Name,
 		"ollama-hash": versionHash,
@@ -87,7 +87,7 @@ wait $pid`,
 // ChildService returns a new expected child Service object based on MyOllama object's spec
 func (m *MyOllama) ChildService(ctx context.Context, scheme *runtime.Scheme) (corev1.Service, error) {
 	log := log.FromContext(ctx)
-	versionHash := m.GetHash()
+	versionHash := m.Hash()
 	objLabels := map[string]string{
 		"ollama-ref":  m.Name,
 		"ollama-hash": versionHash,

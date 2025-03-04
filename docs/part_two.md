@@ -83,7 +83,7 @@ if err != nil {
 We need to check if a valid ReplicaSet exists for the given `MyOllama` resource.
 Note that:
   - all child ReplicaSets created have the `"ollama-ref"=obj.Name` label set.
-  - the current expected replicaset has the `"ollama-hash"=obj.GetHash()` label.
+  - the current expected replicaset has the `"ollama-hash"=obj.Hash()` label.
 
 With this information we can list all children created:
 ```go
@@ -104,7 +104,7 @@ var expected *appsv1.ReplicaSet
 var old []appsv1.ReplicaSet
 
 for _, rs := range rsList.Items {
-    if rs.Labels["ollama-hash"] == obj.GetHash() {
+    if rs.Labels["ollama-hash"] == obj.Hash() {
         expected = &rs
     } else {
         old = append(old, rs)
